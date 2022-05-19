@@ -11,7 +11,7 @@ export default function NavBar() {
           isActive ? "activeNavLink" : "inactiveNavLink"
         }
       >
-        Home
+        Главная
       </NavLink>
       <NavLink
         to={Urls.CURRENCIES}
@@ -19,7 +19,7 @@ export default function NavBar() {
           isActive ? "activeNavLink" : "inactiveNavLink"
         }
       >
-        Todos
+        Валюты
       </NavLink>
     </nav>
   );

@@ -5,9 +5,9 @@ export default class Theme {
   private _lightStatus: "light" | "dark" = "dark";
 
   constructor() {
-    //makeObservable<Theme, "_lightStatus">(this, {
-    makeObservable<Theme>(this, {
-      // _lightStatus: observable,
+    makeObservable<Theme, "_lightStatus">(this, {
+      //makeObservable<Theme>(this, {
+      _lightStatus: observable,
       setLightStatus: action,
     });
 
@@ -18,6 +18,14 @@ export default class Theme {
         : "light";
     }
     this.setLightStatus(lightStatus as "light" | "dark");
+
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem(Storage.LIGHT_MODE, this.lightStatus);
+    });
+  }
+
+  get lightStatus() {
+    return this._lightStatus;
   }
 
   public setLightStatus(val: "light" | "dark") {
@@ -28,4 +36,8 @@ export default class Theme {
       document.documentElement.classList.remove("dark");
     }
   }
+
+  // private saveInLocalStorage() {
+  //   localStorage.setItem(Storage.LIGHT_MODE, this.lightStatus);
+  // }
 }

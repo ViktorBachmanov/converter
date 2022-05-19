@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*****/
+
+.LightMode {
+  margin: 0.5rem 1rem 0.5rem auto;
+  cursor: pointer;
+  width: 2rem;
+
+  /* @apply w-6; */
+}
+
+.dark body {
+  background-color: black;
+  color: silver;
+}

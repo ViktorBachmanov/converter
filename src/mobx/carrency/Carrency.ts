@@ -68,16 +68,24 @@ export default class Carrency {
     const base = this._base;
     const quotes: Quote[] = [];
 
-    const baseQuote = this._initialQuotesObject[base];
+    // const baseQuote = this._initialQuotesObject[base];
 
     for (let name in this._initialQuotesObject) {
       if (name === base) {
         continue;
       }
-      const value = baseQuote / this._initialQuotesObject[name];
+      //const value = baseQuote / this._initialQuotesObject[name];
+      const value = this.evalQuote(name);
       quotes.push({ name, value });
     }
 
     return quotes;
+  }
+
+  public evalQuote(name: string) {
+    const base = this._base;
+    const baseQuote = this._initialQuotesObject[base];
+
+    return baseQuote / this._initialQuotesObject[name];
   }
 }

@@ -10,7 +10,7 @@ function Input({ initialValue }: Props) {
   const [value, setValue] = useState(initialValue);
 
   return (
-    <div className={styles.myInput}>
+    <div className={`dark ${styles.MyInput}`}>
       <span>{value}</span>
     </div>
   );

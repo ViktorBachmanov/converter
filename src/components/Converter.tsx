@@ -1,5 +1,7 @@
 import React from "react";
 
+import Input from "./Input";
+
 function Converter() {
   return (
     <div
@@ -10,7 +12,8 @@ function Converter() {
         fontSize: "200%",
       }}
     >
-      {/* <h2>Конвертер</h2> */}1 EUR = 65.44
+      {/* <h2>Конвертер</h2> */}
+      <Input initialValue="1" /> EUR = 65.44
     </div>
   );
 }

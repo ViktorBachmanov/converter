@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 import LightMode from "./LightMode";
+import BaseCurrency from "./BaseCurrency";
 
 export default function AppBar() {
   return (
@@ -16,6 +17,7 @@ export default function AppBar() {
         GitHub
       </a>
 
+      <BaseCurrency />
       <LightMode />
     </div>
   );

@@ -1,12 +1,12 @@
 import Theme from "./theme/Theme";
-import Converter from "./converter/Converter";
+import Carrency from "./carrency/Carrency";
 
 export default class RootStore {
   public theme: Theme;
-  public converter: Converter;
+  public carrency: Carrency;
 
   constructor() {
     this.theme = new Theme();
-    this.converter = new Converter();
+    this.carrency = new Carrency();
   }
 }

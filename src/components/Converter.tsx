@@ -5,25 +5,34 @@ import Select from "./Select/Select";
 
 import { StoreContext } from "../index";
 
-function Converter() {
-  const initialName = "EUR";
+const initialName = "EUR";
 
+function Converter() {
   const rootStore = useContext(StoreContext);
   const carrencyStore = rootStore.carrency;
 
+  const [amount, setAmount] = useState(1);
+  const [currencyName, setCurrencyName] = useState(initialName);
   const [value, setValue] = useState(() =>
     carrencyStore.evalQuote(initialName)
   );
 
+  const handleChangeAmount = (value: number) => {
+    const quote = carrencyStore.evalQuote(currencyName);
+    setValue(quote * value);
+    setAmount(value);
+  };
+
   const handleChangeCurrency = (name: string) => {
+    setCurrencyName(name);
     const quote = carrencyStore.evalQuote(name);
-    setValue(quote);
+    setValue(quote * amount);
   };
 
   const handleChangeBase = (name: string) => {
     carrencyStore.setBase(name);
-    const quote = carrencyStore.evalQuote(name);
-    setValue(quote);
+    const quote = carrencyStore.evalQuote(currencyName);
+    setValue(quote * amount);
   };
 
   return (
@@ -37,13 +46,13 @@ function Converter() {
     >
       {/* <h2>Конвертер</h2> */}
       <span>
-        <Input initialValue="1" />{" "}
+        <Input initialValue={amount} changeCallback={handleChangeAmount} />{" "}
         <Select
           initialValue={initialName}
           initialOptions={carrencyStore.names}
           doneCallback={handleChangeCurrency}
         />{" "}
-        ={value}
+        ={isNaN(value) ? " 0 " : value}
         <Select
           initialValue={carrencyStore.base}
           initialOptions={carrencyStore.names}

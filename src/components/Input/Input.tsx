@@ -3,14 +3,16 @@ import React, { useState } from "react";
 import "./Input.css";
 
 interface Props {
-  initialValue: string;
+  initialValue: number;
+  changeCallback: (value: number) => void;
 }
 
-function Input({ initialValue }: Props) {
-  const [value, setValue] = useState(initialValue);
+function Input({ initialValue, changeCallback }: Props) {
+  const [value, setValue] = useState(String(initialValue));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
+    changeCallback(parseFloat(e.target.value));
   };
 
   return (

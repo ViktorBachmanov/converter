@@ -60,6 +60,10 @@ export default class Carrency {
     return [...this._initialNames];
   }
 
+  public get base() {
+    return this._base;
+  }
+
   public get quotes() {
     const base = this._base;
     const quotes: Quote[] = [];

@@ -20,6 +20,12 @@ code {
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+}
+
 .LightMode {
   margin: 0.5rem 1rem 0.5rem auto;
   cursor: pointer;

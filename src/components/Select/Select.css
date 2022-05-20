@@ -1,8 +1,9 @@
 
-.vvb_select {
+.vvb-select {
   text-align: center;
   display: inline-block;
   box-sizing: content-box;
+  position: relative;
   /* padding-left: 0.25em;
   padding-right: 0.25em; */
 
@@ -11,12 +12,12 @@
   /* @apply dark:bg-zinc-600 dark:text-slate-300; */
 }
 
-.vvb_select input {
+.vvb-select input {
   background: none;
   /* padding-left: 0.25em;
   padding-right: 0.25em; */
-  width: 3em;
-  box-sizing: content-box;
+  width: 100%;
+  /* box-sizing: border-box; */
   
   border-style: solid;
   border-width: 1px;
@@ -24,6 +25,29 @@
 
   
   @apply border-black dark:border-white;
+}
+
+.vvb-select__list {
+  position: absolute;
+  left: 0;
+  top: 2em;
+  width: 100%;
+  /* margin-top: 0.25em; */
+
+  max-height: 75vh;
+  border: solid 1px;
+  border-radius: 0.2em;
+
+  overflow-y: auto;
+  cursor: pointer;
+}
+
+.vvb-select__list li:hover {
+  @apply bg-slate-500 dark:bg-slate-800 dark:text-slate-300;
+}
+
+.vvb-select__list li:active {
+  @apply bg-slate-500 dark:bg-slate-800 dark:text-slate-300;
 }
 
 

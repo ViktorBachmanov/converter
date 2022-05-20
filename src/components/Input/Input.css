@@ -2,7 +2,7 @@
 .vvb_input {
   /* text-align: right; */
   display: inline-block;
-  box-sizing: content-box;  
+  /* box-sizing: border-box;   */
   
   /* @apply dark:bg-zinc-600 dark:text-slate-300; */
 }
@@ -12,7 +12,7 @@
   background: none;
   padding-right: 0.2em;
   width: 7em;
-  box-sizing: content-box;
+  /* box-sizing: border-box; */
   /* -webkit-tap-highlight-color: transparent; */
   
   border-style: solid;

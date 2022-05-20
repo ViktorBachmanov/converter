@@ -1,6 +1,6 @@
 import React from "react";
 
-import Input from "./Input";
+import Input from "./Input/Input";
 
 function Converter() {
   return (
@@ -13,7 +13,9 @@ function Converter() {
       }}
     >
       {/* <h2>Конвертер</h2> */}
-      <Input initialValue="1" /> EUR = 65.44
+      <span>
+        <Input initialValue="1" /> EUR = 65.44
+      </span>
     </div>
   );
 }

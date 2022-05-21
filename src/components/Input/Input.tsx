@@ -18,7 +18,7 @@ function Input({ initialValue, changeCallback }: Props) {
   return (
     <div className="vvb_input">
       <input
-        type="text"
+        type="number"
         value={value}
         style={{ textAlign: "right" }}
         onChange={handleChange}

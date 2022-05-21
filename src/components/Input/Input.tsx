@@ -15,6 +15,13 @@ function Input({ initialValue, changeCallback }: Props) {
     changeCallback(parseFloat(e.target.value));
   };
 
+  const hadleKeyDown = (e: any) => {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      e.target.blur();
+    }
+  };
+
   return (
     <div className="vvb_input">
       <input
@@ -22,6 +29,7 @@ function Input({ initialValue, changeCallback }: Props) {
         value={value}
         style={{ textAlign: "right" }}
         onChange={handleChange}
+        onKeyDown={hadleKeyDown}
       ></input>
     </div>
   );

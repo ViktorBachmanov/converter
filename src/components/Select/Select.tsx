@@ -31,6 +31,7 @@ function Select({ initialValue, initialOptions, doneCallback }: Props) {
     setOptions(filteredOptions);
 
     if (value.length === 3 && filteredOptions.includes(value)) {
+      setOptions(initialOptions);
       selectDone(value);
     }
   };
@@ -56,6 +57,13 @@ function Select({ initialValue, initialOptions, doneCallback }: Props) {
     selectDone(e.target.textContent);
   };
 
+  const hadleKeyDown = (e: any) => {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      e.target.blur();
+    }
+  };
+
   return (
     <div className="vvb-select" style={{ width: "3em" }}>
       <input
@@ -65,7 +73,9 @@ function Select({ initialValue, initialOptions, doneCallback }: Props) {
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        onKeyDown={hadleKeyDown}
         ref={inputRef}
+        // tabIndex={-1}
       ></input>
 
       <ul

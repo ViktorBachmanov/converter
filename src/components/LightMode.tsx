@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { ReactComponent as Sun } from "./svg/sun.svg";
-import { ReactComponent as Moon } from "./svg/moon.svg";
+import { ReactComponent as Sun } from "./svg/brightness-high.svg";
+import { ReactComponent as Moon } from "./svg/moon-stars.svg";
 
 import { observer } from "mobx-react-lite";
 
@@ -36,7 +36,7 @@ const LightMode = observer(function LightMode() {
       {themeStore.lightStatus === "dark" ? (
         <Sun onClick={() => handleClick("light")} />
       ) : (
-        <Moon onClick={() => handleClick("dark")} />
+        <Moon onClick={() => handleClick("dark")} style={{ width: "1.8rem" }} />
       )}
     </div>
   );

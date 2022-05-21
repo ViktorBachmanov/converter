@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Urls } from "../constants";
 
+import "./NavBar.css";
+
 export default function NavBar() {
   return (
     <nav className="NavBar">
@@ -11,7 +13,7 @@ export default function NavBar() {
           isActive ? "activeNavLink" : "inactiveNavLink"
         }
       >
-        Главная
+        Конвертер
       </NavLink>
       <NavLink
         to={Urls.CURRENCIES}
@@ -19,7 +21,7 @@ export default function NavBar() {
           isActive ? "activeNavLink" : "inactiveNavLink"
         }
       >
-        Валюты
+        Котировки
       </NavLink>
     </nav>
   );

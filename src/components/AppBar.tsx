@@ -3,10 +3,12 @@ import NavBar from "./NavBar";
 import LightMode from "./LightMode";
 import BaseCurrency from "./BaseCurrency";
 
+import "./AppBar.css";
+
 export default function AppBar() {
   return (
     <div className="AppBar">
-      <NavBar />
+      {/* <NavBar /> */}
 
       <a
         className="GitHubLink"
@@ -17,7 +19,7 @@ export default function AppBar() {
         GitHub
       </a>
 
-      <BaseCurrency />
+      {/* <BaseCurrency /> */}
       <LightMode />
     </div>
   );

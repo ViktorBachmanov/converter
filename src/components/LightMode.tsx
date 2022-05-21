@@ -36,7 +36,10 @@ const LightMode = observer(function LightMode() {
       {themeStore.lightStatus === "dark" ? (
         <Sun onClick={() => handleClick("light")} />
       ) : (
-        <Moon onClick={() => handleClick("dark")} style={{ width: "1.8rem" }} />
+        <Moon
+          onClick={() => handleClick("dark")}
+          style={{ width: "1.25rem" }}
+        />
       )}
     </div>
   );

@@ -44,8 +44,7 @@ function Converter() {
         fontSize: "200%",
       }}
     >
-      {/* <h2>Конвертер</h2> */}
-      <span>
+      <div>
         <Input initialValue={amount} changeCallback={handleChangeAmount} />{" "}
         <Select
           initialValue={initialName}
@@ -58,7 +57,7 @@ function Converter() {
           initialOptions={carrencyStore.names}
           doneCallback={handleChangeBase}
         />
-      </span>
+      </div>
     </div>
   );
 }

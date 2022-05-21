@@ -5,7 +5,7 @@ import "./Select.css";
 interface Props {
   initialValue: string;
   initialOptions: string[];
-  doneCallback?: any;
+  doneCallback: (name: string) => void;
 }
 
 function Select({ initialValue, initialOptions, doneCallback }: Props) {

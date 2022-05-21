@@ -4,14 +4,20 @@ import { observer } from "mobx-react-lite";
 
 import { StoreContext } from "../index";
 
+import Select from "./Select/Select";
+
 const Currencies = observer(function Currencies() {
   const rootStore = useContext(StoreContext);
   const carrencyStore = rootStore.carrency;
 
   return (
     <>
-      <h2>Курсы валют</h2>
-      <div
+      <Select
+        initialValue={carrencyStore.base}
+        initialOptions={carrencyStore.names}
+        doneCallback={(name: string) => carrencyStore.setBase(name)}
+      />
+      <ul
         style={{
           height: "400px",
           overflow: "auto",
@@ -22,7 +28,7 @@ const Currencies = observer(function Currencies() {
       >
         {carrencyStore.quotes.map((quote) => {
           return (
-            <div
+            <li
               key={quote.name}
               style={{
                 margin: "0.25rem",
@@ -30,10 +36,10 @@ const Currencies = observer(function Currencies() {
               }}
             >
               1 {quote.name} = {quote.value}
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </>
   );
 });

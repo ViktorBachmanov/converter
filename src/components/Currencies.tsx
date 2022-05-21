@@ -35,7 +35,7 @@ const Currencies = observer(function Currencies() {
                 fontFamily: "'Roboto Mono', monospace",
               }}
             >
-              1 {quote.name} = {quote.value}
+              1 {quote.name} = {quote.value.toFixed(carrencyStore.accuracy)}
             </li>
           );
         })}

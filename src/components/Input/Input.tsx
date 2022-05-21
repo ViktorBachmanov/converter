@@ -3,16 +3,17 @@ import React, { useState } from "react";
 import "./Input.css";
 
 interface Props {
-  initialValue: number;
-  changeCallback: (value: number) => void;
+  initialValue: string;
+  changeCallback: (value: string) => void;
+  style?: any;
 }
 
-function Input({ initialValue, changeCallback }: Props) {
+function Input({ initialValue, changeCallback, style }: Props) {
   const [value, setValue] = useState(String(initialValue));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    changeCallback(parseFloat(e.target.value));
+    changeCallback(e.target.value);
   };
 
   const hadleKeyDown = (e: any) => {
@@ -25,9 +26,9 @@ function Input({ initialValue, changeCallback }: Props) {
   return (
     <div className="vvb_input">
       <input
-        type="number"
+        type="text"
         value={value}
-        style={{ textAlign: "right" }}
+        style={{ textAlign: "right", ...style }}
         onChange={handleChange}
         onKeyDown={hadleKeyDown}
       ></input>

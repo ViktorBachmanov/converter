@@ -17,6 +17,7 @@ export default class Carrency {
   private _initialNames: string[] = [];
   private _initialQuotes: number[] = [];
   private _base: string = "RUB";
+  private _accuracy: number = 3;
 
   constructor() {
     //this._apiKey = process.env.REACT_APP_API_KEY!;
@@ -45,15 +46,22 @@ export default class Carrency {
     // console.log(this._initialNames);
     // console.log(this._initialQuotes);
 
-    makeObservable<Carrency, "_base">(this, {
+    makeObservable<Carrency, "_base" | "_accuracy">(this, {
       _base: observable,
+      _accuracy: observable,
       setBase: action,
+      setAccuracy: action,
       quotes: computed,
+      accuracy: computed,
     });
   }
 
   public setBase(val: string) {
     this._base = val;
+  }
+
+  public setAccuracy(val: number) {
+    this._accuracy = val;
   }
 
   public get names() {
@@ -62,6 +70,10 @@ export default class Carrency {
 
   public get base() {
     return this._base;
+  }
+
+  public get accuracy() {
+    return this._accuracy;
   }
 
   public get quotes() {

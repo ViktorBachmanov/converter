@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { observer } from "mobx-react-lite";
 
 import Input from "./Input/Input";
 import Select from "./Select/Select";
@@ -7,7 +8,7 @@ import { StoreContext } from "../index";
 
 const initialName = "EUR";
 
-function Converter() {
+const Converter = observer(function Converter() {
   const rootStore = useContext(StoreContext);
   const carrencyStore = rootStore.carrency;
 
@@ -17,10 +18,15 @@ function Converter() {
     carrencyStore.evalQuote(initialName)
   );
 
-  const handleChangeAmount = (value: number) => {
+  const handleChangeAmount = (value: string) => {
     const quote = carrencyStore.evalQuote(currencyName);
-    setValue(quote * value);
-    setAmount(value);
+    const val = parseFloat(value);
+    if (isNaN(val)) {
+      console.log("Error: handleChangeAmount() - val isNaN");
+      return;
+    }
+    setValue(quote * val);
+    setAmount(val);
   };
 
   const handleChangeCurrency = (name: string) => {
@@ -45,13 +51,16 @@ function Converter() {
       }}
     >
       <div>
-        <Input initialValue={amount} changeCallback={handleChangeAmount} />{" "}
+        <Input
+          initialValue={String(amount)}
+          changeCallback={handleChangeAmount}
+        />{" "}
         <Select
           initialValue={initialName}
           initialOptions={carrencyStore.names}
           doneCallback={handleChangeCurrency}
         />{" "}
-        ={isNaN(value) ? " 0 " : value}
+        ={isNaN(value) ? " 0 " : value.toFixed(carrencyStore.accuracy)}
         <Select
           initialValue={carrencyStore.base}
           initialOptions={carrencyStore.names}
@@ -60,6 +69,6 @@ function Converter() {
       </div>
     </div>
   );
-}
+});
 
 export default Converter;

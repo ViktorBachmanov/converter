@@ -1,9 +1,8 @@
-
 .vvb_input {
   /* text-align: right; */
   display: inline-block;
   /* box-sizing: border-box;   */
-  
+
   /* @apply dark:bg-zinc-600 dark:text-slate-300; */
 }
 
@@ -14,16 +13,14 @@
   width: 7em;
   /* box-sizing: border-box; */
   /* -webkit-tap-highlight-color: transparent; */
-  
+
   border-style: solid;
   border-width: 1px;
   border-radius: 0.2em;
-  
-  @apply border-black dark:border-white;
+
+  @apply bg-gray-100 dark:bg-neutral-800 dark:text-slate-200 border-black dark:border-white;
 }
 
 /* .vvb_input input:focus {
   border: none;
 } */
-
-

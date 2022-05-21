@@ -6,9 +6,10 @@ interface Props {
   initialValue: string;
   initialOptions: string[];
   doneCallback: (name: string) => void;
+  style?: any;
 }
 
-function Select({ initialValue, initialOptions, doneCallback }: Props) {
+function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
   const [options, setOptions] = useState(initialOptions);
   const [value, setValue] = useState(initialValue);
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +66,7 @@ function Select({ initialValue, initialOptions, doneCallback }: Props) {
   };
 
   return (
-    <div className="vvb-select" style={{ width: "3em" }}>
+    <div className="vvb-select" style={{ width: "3em", ...style }}>
       <input
         type="text"
         value={value}

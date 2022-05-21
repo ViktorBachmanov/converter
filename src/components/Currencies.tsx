@@ -12,11 +12,15 @@ const Currencies = observer(function Currencies() {
 
   return (
     <>
-      <Select
-        initialValue={carrencyStore.base}
-        initialOptions={carrencyStore.names}
-        doneCallback={(name: string) => carrencyStore.setBase(name)}
-      />
+      <div style={{ display: "flex" }}>
+        Базовая валюта:
+        <Select
+          initialValue={carrencyStore.base}
+          initialOptions={carrencyStore.names}
+          doneCallback={(name: string) => carrencyStore.setBase(name)}
+          style={{ marginLeft: "0.5rem" }}
+        />
+      </div>
       <ul
         style={{
           height: "400px",

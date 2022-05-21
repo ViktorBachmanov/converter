@@ -58,7 +58,7 @@ function Select({ initialValue, initialOptions, doneCallback }: Props) {
   };
 
   const hadleKeyDown = (e: any) => {
-    if (e.key === "Tab") {
+    if (e.code === "Tab") {
       e.preventDefault();
       e.target.blur();
     }

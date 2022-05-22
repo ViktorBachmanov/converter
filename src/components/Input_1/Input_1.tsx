@@ -48,24 +48,17 @@ function Input_1({ initialValue, changeCallback, style }: Props) {
   };
 
   return (
-    <div
-      className="vvb_input_1"
-      tabIndex={-1}
-      style={{
-        ...style,
-      }}
-    >
+    <div className="vvb_input_1" tabIndex={-1}>
       <input
         ref={inputRef}
-        style={{
-          //visibility: "hidden",
-          textAlign: "center",
-        }}
         onClick={handleClick}
         onChange={handleChange}
         onKeyDown={hadleKeyDown}
         onBlur={handleBlur}
         value={value}
+        style={{
+          ...style,
+        }}
       />
       <span
         style={{ position: "absolute", visibility: "hidden" }}

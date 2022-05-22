@@ -50,17 +50,25 @@ const Converter = observer(function Converter() {
         fontSize: "200%",
       }}
     >
-      <div style={{ display: "flex", marginTop: "2rem", alignItems: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "2rem",
+          alignItems: "flex-end",
+        }}
+      >
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            //flexDirection: "column",
             alignItems: "center",
           }}
         >
           <Input_1
             initialValue={String(amount)}
             changeCallback={handleChangeAmount}
+            style={{ textAlign: "right" }}
           />
           <Select
             initialValue={initialName}
@@ -69,11 +77,13 @@ const Converter = observer(function Converter() {
             style={{ margin: "1rem" }}
           />
         </div>
-        <div style={{ margin: "1rem", fontSize: "200%" }}>=</div>
+        <div style={{ margin: "1rem", fontSize: "200%", alignSelf: "center" }}>
+          =
+        </div>
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            //flexDirection: "column",
             alignItems: "center",
           }}
         >

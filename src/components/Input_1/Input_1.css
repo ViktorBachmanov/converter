@@ -19,7 +19,7 @@
   border-width: 1px;
   border-radius: 0.2em;
 
-  
+  min-width: 5em;
 
   @apply bg-gray-100 dark:bg-neutral-800 dark:text-slate-200 border-black dark:border-white;
 

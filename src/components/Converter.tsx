@@ -46,55 +46,52 @@ const Converter = observer(function Converter() {
       style={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        marginTop: "2rem",
+        alignItems: "flex-end",
         fontSize: "200%",
+        maxWidth: "100%",
       }}
     >
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          marginTop: "2rem",
-          alignItems: "flex-end",
+          //flexDirection: "column",
+          alignItems: "center",
+          maxWidth: "100%",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            //flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Input_1
-            initialValue={String(amount)}
-            changeCallback={handleChangeAmount}
-            style={{ textAlign: "right" }}
-          />
-          <Select
-            initialValue={initialName}
-            initialOptions={carrencyStore.names}
-            doneCallback={handleChangeCurrency}
-            style={{ margin: "1rem" }}
-          />
-        </div>
-        <div style={{ margin: "1rem", fontSize: "200%", alignSelf: "center" }}>
-          =
-        </div>
-        <div
-          style={{
-            display: "flex",
-            //flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <Input_1
+          initialValue={String(amount)}
+          changeCallback={handleChangeAmount}
+          style={{ textAlign: "right" }}
+        />
+        <Select
+          initialValue={initialName}
+          initialOptions={carrencyStore.names}
+          doneCallback={handleChangeCurrency}
+          style={{ margin: "1rem" }}
+        />
+      </div>
+      <div style={{ margin: "1rem", fontSize: "150%", alignSelf: "center" }}>
+        =
+      </div>
+      <div
+        style={{
+          display: "flex",
+          //flexDirection: "column",
+          alignItems: "center",
+          maxWidth: "100%",
+        }}
+      >
+        <span style={{ overflowX: "auto" }}>
           {isNaN(value) ? " 0 " : value.toFixed(carrencyStore.accuracy)}
-          <Select
-            initialValue={carrencyStore.base}
-            initialOptions={carrencyStore.names}
-            doneCallback={handleChangeBase}
-            style={{ margin: "1rem" }}
-          />
-        </div>
+        </span>
+        <Select
+          initialValue={carrencyStore.base}
+          initialOptions={carrencyStore.names}
+          doneCallback={handleChangeBase}
+          style={{ margin: "1rem" }}
+        />
       </div>
     </div>
   );

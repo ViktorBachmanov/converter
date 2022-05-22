@@ -42,7 +42,7 @@ const Quotes = observer(function () {
   });
 
   return (
-    <div ref={columnsRef} style={{ columnCount }}>
+    <>
       <div style={{ display: "flex" }}>
         Базовая валюта:
         <Select
@@ -52,31 +52,41 @@ const Quotes = observer(function () {
           style={{ marginLeft: "0.5rem" }}
         />
       </div>
-      <ul
+      <div
+        ref={columnsRef}
         style={{
-          //height: "400px",
-          //overflowX: "auto",
-          margin: "1rem",
-          width: "fit-content",
-          padding: "0.5rem",
+          columnCount,
+          columnGap: "2em",
+          margin: "2rem 0",
         }}
       >
-        {carrencyStore.quotes.map((quote) => {
-          return (
-            <li
-              key={quote.name}
-              style={{
-                margin: "0.25rem",
-                fontFamily: "'Roboto Mono', monospace",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {quote.name}: {quote.value.toFixed(accuracy)}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+        <ul
+          style={
+            {
+              //height: "400px",
+              //overflowX: "auto",
+              //width: "fit-content",
+              //padding: "0.5rem",
+            }
+          }
+        >
+          {carrencyStore.quotes.map((quote) => {
+            return (
+              <li
+                key={quote.name}
+                style={{
+                  marginBottom: "0.25rem",
+                  fontFamily: "'Roboto Mono', monospace",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {quote.name}: {quote.value.toFixed(accuracy)}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 });
 

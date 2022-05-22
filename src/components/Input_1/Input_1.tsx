@@ -61,7 +61,12 @@ function Input_1({ initialValue, changeCallback, style }: Props) {
         }}
       />
       <span
-        style={{ position: "absolute", visibility: "hidden" }}
+        style={{
+          position: "absolute",
+          visibility: "hidden",
+          top: "0",
+          left: "0",
+        }}
         ref={hiddenVal}
       >
         {value}

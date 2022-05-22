@@ -26,7 +26,7 @@ function Layout() {
       <AppBar />
 
       <div
-        className="container pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12"
+        className="container p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12"
         style={{
           display: "flex",
           flexDirection: "column",

@@ -1,6 +1,7 @@
 .vvb-select {
   text-align: center;
   position: relative;
+  flex: 0 0 auto;
   /* padding-left: 0.25em;
   padding-right: 0.25em; */
 

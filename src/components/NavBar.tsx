@@ -16,7 +16,7 @@ export default function NavBar() {
         Конвертер
       </NavLink>
       <NavLink
-        to={Urls.CURRENCIES}
+        to={Urls.QUOTES}
         className={({ isActive }) =>
           isActive ? "activeNavLink" : "inactiveNavLink"
         }

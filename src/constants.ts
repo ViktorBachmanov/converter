@@ -1,4 +1,4 @@
 export enum Urls {
   HOME = "/",
-  CURRENCIES = "currencies",
+  QUOTES = "quotes",
 }

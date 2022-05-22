@@ -6,7 +6,7 @@ import { StoreContext } from "../index";
 
 import Select from "./Select/Select";
 
-const Currencies = observer(function Currencies() {
+const Quotes = observer(function () {
   console.log("Currencies");
   const rootStore = useContext(StoreContext);
   const carrencyStore = rootStore.carrency;
@@ -16,7 +16,7 @@ const Currencies = observer(function Currencies() {
   const columnsRef = useRef(null);
 
   //const [columnCount, setColumnCount] = useState(5);
-  let columnCount = 5;
+  let columnCount = 7; // starting value
 
   //let columnsWidth = 0;
   const maxWidth = window.innerWidth - 100;
@@ -80,4 +80,4 @@ const Currencies = observer(function Currencies() {
   );
 });
 
-export default Currencies;
+export default Quotes;

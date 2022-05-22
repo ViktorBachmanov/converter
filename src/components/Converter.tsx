@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { observer } from "mobx-react-lite";
 
-import Input from "./Input/Input";
+import Input_1 from "./Input_1/Input_1";
 import Select from "./Select/Select";
 
 import { StoreContext } from "../index";
@@ -58,7 +58,7 @@ const Converter = observer(function Converter() {
             alignItems: "center",
           }}
         >
-          <Input
+          <Input_1
             initialValue={String(amount)}
             changeCallback={handleChangeAmount}
           />

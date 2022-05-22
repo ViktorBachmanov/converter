@@ -13,18 +13,25 @@ function Input({ initialValue, changeCallback, style }: Props) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    changeCallback(e.target.value);
   };
 
   const hadleKeyDown = (e: any) => {
-    if (e.code === "Tab") {
+    //console.log("hadleKeyDown code: ", e.code);
+    console.log("hadleKeyDown key: ", e.key);
+    if (e.key === "Tab") {
       e.preventDefault();
+      e.target.blur();
+    } else if (e.key === "Enter") {
       e.target.blur();
     }
   };
 
   const handleClick = (e: any) => {
     e.target.select();
+  };
+
+  const handleBlur = (e: any) => {
+    changeCallback(e.target.value);
   };
 
   return (
@@ -36,6 +43,7 @@ function Input({ initialValue, changeCallback, style }: Props) {
         onChange={handleChange}
         onKeyDown={hadleKeyDown}
         onClick={handleClick}
+        onBlur={handleBlur}
       ></input>
     </div>
   );

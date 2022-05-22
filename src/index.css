@@ -32,17 +32,21 @@ input {
   outline: 0;
 }
 
+.icon-button {
+  /* margin: 0.5rem 1rem 0.5rem auto; */
+  margin: 0.5rem 1rem;
+  cursor: pointer;
+  width: 1.5rem;
+  border-radius: 50%;
+
+  /* @apply w-6; */
+}
+
 /* .Layout {
   overflow-x: "auto";
 } */
 
-.LightMode {
-  margin: 0.5rem 1rem 0.5rem auto;
-  cursor: pointer;
-  width: 1.5rem;
 
-  /* @apply w-6; */
-}
 
 /* .dark body {
   background-color: black;

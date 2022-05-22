@@ -32,12 +32,12 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
     setOptions(filteredOptions);
 
     if (value.length === 3 && filteredOptions.includes(value)) {
-      setOptions(initialOptions);
       selectDone(value);
     }
   };
 
   const selectDone = (value: string) => {
+    setOptions(initialOptions);
     //setIsOpen(false);
     const inputEl = inputRef.current! as HTMLImageElement;
     inputEl.blur();

@@ -20,6 +20,8 @@ export default function AppBar() {
         GitHub
       </a> */}
 
+      <NavBar />
+
       <GitHub
         className="icon-button"
         onClick={() =>

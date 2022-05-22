@@ -33,7 +33,6 @@ function Layout() {
           alignItems: "center",
         }}
       >
-        <NavBar />
         <div style={{ display: "flex" }}>
           Количество знаков после точки:
           <Input

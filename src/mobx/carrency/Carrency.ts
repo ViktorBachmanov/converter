@@ -1,6 +1,9 @@
 import { makeObservable, observable, computed, action, flow } from "mobx";
 import { quotes_rub, quotes_usd } from "./quotes";
 
+const BASE_CURRENCY = "base_currency";
+const ACCURACY = "accuracy";
+
 interface InitialQuotes {
   [index: string]: number;
 }
@@ -53,6 +56,20 @@ export default class Carrency {
       setAccuracy: action,
       quotes: computed,
       accuracy: computed,
+    });
+
+    const baseCurrency = localStorage.getItem(BASE_CURRENCY);
+    this.setBase(baseCurrency || "RUB");
+
+    let accuracy = localStorage.getItem(ACCURACY);
+    if (!accuracy) {
+      accuracy = "3";
+    }
+    this.setAccuracy(parseInt(accuracy));
+
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem(BASE_CURRENCY, this.base);
+      localStorage.setItem(ACCURACY, String(this.accuracy));
     });
   }
 

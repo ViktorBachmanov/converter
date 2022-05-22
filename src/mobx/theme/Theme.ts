@@ -1,5 +1,7 @@
-import { Storage } from "./types";
+// import { Storage } from "./types";
 import { makeObservable, observable, action } from "mobx";
+
+const LIGHT_MODE = "light_mode";
 
 export default class Theme {
   private _lightStatus: "light" | "dark" = "dark";
@@ -11,7 +13,7 @@ export default class Theme {
       setLightStatus: action,
     });
 
-    let lightStatus = localStorage.getItem(Storage.LIGHT_MODE);
+    let lightStatus = localStorage.getItem(LIGHT_MODE);
     if (!lightStatus) {
       lightStatus = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
@@ -20,7 +22,7 @@ export default class Theme {
     this.setLightStatus(lightStatus as "light" | "dark");
 
     window.addEventListener("beforeunload", () => {
-      localStorage.setItem(Storage.LIGHT_MODE, this.lightStatus);
+      localStorage.setItem(LIGHT_MODE, this.lightStatus);
     });
   }
 

@@ -4,17 +4,32 @@ import "./Input_1.css";
 
 interface Props {
   initialValue: string;
-  changeCallback: (value: string) => void;
+  changeCallback?: (value: string) => void;
   style?: any;
+  isReadonly?: boolean;
 }
 
-function Input_1({ initialValue, changeCallback, style }: Props) {
-  const [value, setValue] = useState(String(initialValue));
+// Input_1.defaultProps = {
+//   isReadonly: false,
+// };
+
+function Input_1({
+  initialValue,
+  changeCallback,
+  style,
+  isReadonly = false,
+}: Props) {
+  console.log("Input_1 initialValue: ", initialValue);
+  const [value, setValue] = useState(initialValue);
+  console.log("value: ", value);
 
   const inputRef = useRef(null);
   const hiddenVal = useRef(null);
 
   useEffect(() => {
+    if (isReadonly) {
+      setValue(initialValue);
+    }
     const hiddenValEl = hiddenVal.current! as HTMLElement;
     const width = hiddenValEl.getBoundingClientRect().width;
 
@@ -44,11 +59,16 @@ function Input_1({ initialValue, changeCallback, style }: Props) {
   };
 
   const handleBlur = () => {
-    changeCallback(value);
+    if (changeCallback) {
+      changeCallback(value);
+    }
   };
 
   return (
-    <div className="vvb_input_1" tabIndex={-1}>
+    <div
+      className={isReadonly ? "vvb-input-1 readonly" : "vvb-input-1"}
+      tabIndex={-1}
+    >
       <input
         ref={inputRef}
         tabIndex={-1}

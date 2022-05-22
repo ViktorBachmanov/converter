@@ -83,9 +83,13 @@ const Converter = observer(function Converter() {
           maxWidth: "100%",
         }}
       >
-        <span style={{ overflowX: "auto" }}>
-          {isNaN(value) ? " 0 " : value.toFixed(carrencyStore.accuracy)}
-        </span>
+        <Input_1
+          initialValue={
+            isNaN(value) ? " 0 " : value.toFixed(carrencyStore.accuracy)
+          }
+          style={{ textAlign: "right" }}
+          isReadonly={true}
+        />
         <Select
           initialValue={carrencyStore.base}
           initialOptions={carrencyStore.names}

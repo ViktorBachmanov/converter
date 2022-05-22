@@ -1,4 +1,4 @@
-.vvb_input_1 {
+.vvb-input-1 {
   position: relative;
   /* max-width: 7em; */
   overflow-x: auto;
@@ -13,8 +13,8 @@
   /* @apply bg-gray-100 dark:bg-neutral-800 dark:text-slate-200 border-black dark:border-white; */
 }
 
-.vvb_input_1 input {
-  background: none;
+.vvb-input-1 input {
+  /* background: none; */
   /* background-clip: padding-box; */
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -32,3 +32,15 @@
 /* .vvb_input_1 input:focus {
   border-color: red;
 } */
+/* 
+.vvb-input-1.readonly {
+  
+} */
+
+.vvb-input-1.readonly input {
+  pointer-events: none;
+  background: none;
+
+  /* @apply bg-gray-200 dark:bg-neutral-700 dark:text-slate-200 border-gray-800 dark:border-slate-300; */
+
+}

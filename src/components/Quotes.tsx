@@ -25,21 +25,21 @@ const Quotes = observer(function () {
     columnsEl.style.columnCount = String(columnCount);
 
     let columnsWidth = columnsEl.getBoundingClientRect().width;
-    console.log("columnsWidth: ", columnsWidth);
+    //console.log("columnsWidth: ", columnsWidth);
 
     //const maxWidth = window.innerWidth - 100;
     const parentEl = columnsEl.parentNode! as HTMLElement;
     const maxWidth = parentEl.getBoundingClientRect().width;
-    console.log("maxWidth: ", maxWidth);
+    //console.log("maxWidth: ", maxWidth);
 
     //for(let columnCount = getComputedStyle(columnsEl).columnCount ; columnsWidth > maxWidth )
     //let columnCount: number = parseInt(columnsEl.style.columnCount);
     //let columnCount: number = parseInt(getComputedStyle(columnsEl).columnCount);
-    console.log("columnCount: ", columnCount);
+    //console.log("columnCount: ", columnCount);
     while (columnsWidth > maxWidth && columnCount > 1) {
       columnsEl.style.columnCount = String(--columnCount);
       columnsWidth = columnsEl.getBoundingClientRect().width;
-      console.log("columnsWidth: ", columnsWidth);
+      //console.log("columnsWidth: ", columnsWidth);
     }
     //setColumnCount(columnCount);
   });
@@ -49,9 +49,9 @@ const Quotes = observer(function () {
       <div style={{ display: "flex" }}>
         Базовая валюта:
         <Select
-          initialValue={carrencyStore.base}
+          initialValue={carrencyStore.quotesBase}
           initialOptions={carrencyStore.names}
-          doneCallback={(name: string) => carrencyStore.setBase(name)}
+          doneCallback={(name: string) => carrencyStore.setQuotesBase(name)}
           style={{ marginLeft: "0.5rem" }}
         />
       </div>

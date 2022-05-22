@@ -1,7 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
 import LightMode from "./LightMode";
-import BaseCurrency from "./BaseCurrency";
 
 import "./AppBar.css";
 

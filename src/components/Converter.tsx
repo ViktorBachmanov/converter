@@ -6,40 +6,28 @@ import Select from "./Select/Select";
 
 import { StoreContext } from "../index";
 
-const initialName = "EUR";
-
 const Converter = observer(function Converter() {
   const rootStore = useContext(StoreContext);
   const carrencyStore = rootStore.carrency;
 
-  const [amount, setAmount] = useState(1);
-  const [currencyName, setCurrencyName] = useState(initialName);
-  const [value, setValue] = useState(() =>
-    carrencyStore.evalQuote(initialName)
-  );
-
   const handleChangeAmount = (value: string) => {
-    const quote = carrencyStore.evalQuote(currencyName);
     const val = parseFloat(value);
     if (isNaN(val)) {
       console.log("Error: handleChangeAmount() - val isNaN");
       return;
     }
-    setValue(quote * val);
-    setAmount(val);
+    carrencyStore.setAmount(val);
   };
 
   const handleChangeCurrency = (name: string) => {
-    setCurrencyName(name);
-    const quote = carrencyStore.evalQuote(name);
-    setValue(quote * amount);
+    carrencyStore.setName(name);
   };
 
   const handleChangeBase = (name: string) => {
-    carrencyStore.setBase(name);
-    const quote = carrencyStore.evalQuote(currencyName);
-    setValue(quote * amount);
+    carrencyStore.setConverterBase(name);
   };
+
+  const value = carrencyStore.convert();
 
   return (
     <div
@@ -61,20 +49,18 @@ const Converter = observer(function Converter() {
         }}
       >
         <Input_1
-          initialValue={String(amount)}
+          initialValue={String(carrencyStore.amount)}
           changeCallback={handleChangeAmount}
           style={{ textAlign: "right" }}
         />
         <Select
-          initialValue={initialName}
+          initialValue={carrencyStore.name}
           initialOptions={carrencyStore.names}
           doneCallback={handleChangeCurrency}
           style={{ margin: "1rem" }}
         />
       </div>
-      <div style={{ margin: "1rem", fontSize: "150%", alignSelf: "center" }}>
-        =
-      </div>
+      <div style={{ fontSize: "150%", alignSelf: "center" }}>=</div>
       <div
         style={{
           display: "flex",
@@ -91,7 +77,7 @@ const Converter = observer(function Converter() {
           isReadonly={true}
         />
         <Select
-          initialValue={carrencyStore.base}
+          initialValue={carrencyStore.converterBase}
           initialOptions={carrencyStore.names}
           doneCallback={handleChangeBase}
           style={{ margin: "1rem" }}

@@ -19,9 +19,9 @@ function Input_1({
   style,
   isReadonly = false,
 }: Props) {
-  console.log("Input_1 initialValue: ", initialValue);
+  //console.log("Input_1 initialValue: ", initialValue);
   const [value, setValue] = useState(initialValue);
-  console.log("value: ", value);
+  //console.log("value: ", value);
 
   const inputRef = useRef(null);
   const hiddenVal = useRef(null);

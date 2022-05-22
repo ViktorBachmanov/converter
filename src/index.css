@@ -32,6 +32,10 @@ input {
   outline: 0;
 }
 
+/* .Layout {
+  overflow-x: "auto";
+} */
+
 .LightMode {
   margin: 0.5rem 1rem 0.5rem auto;
   cursor: pointer;

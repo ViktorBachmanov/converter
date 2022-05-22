@@ -51,6 +51,7 @@ function Input_1({ initialValue, changeCallback, style }: Props) {
     <div className="vvb_input_1" tabIndex={-1}>
       <input
         ref={inputRef}
+        tabIndex={-1}
         onClick={handleClick}
         onChange={handleChange}
         onKeyDown={hadleKeyDown}

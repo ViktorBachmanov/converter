@@ -19,8 +19,6 @@ const Quotes = observer(function () {
   let columnCount = 7; // starting value
 
   //let columnsWidth = 0;
-  const maxWidth = window.innerWidth - 100;
-  console.log("maxWidth: ", maxWidth);
 
   useEffect(() => {
     let columnsEl = columnsRef.current! as HTMLElement;
@@ -28,6 +26,11 @@ const Quotes = observer(function () {
 
     let columnsWidth = columnsEl.getBoundingClientRect().width;
     console.log("columnsWidth: ", columnsWidth);
+
+    //const maxWidth = window.innerWidth - 100;
+    const parentEl = columnsEl.parentNode! as HTMLElement;
+    const maxWidth = parentEl.getBoundingClientRect().width;
+    console.log("maxWidth: ", maxWidth);
 
     //for(let columnCount = getComputedStyle(columnsEl).columnCount ; columnsWidth > maxWidth )
     //let columnCount: number = parseInt(columnsEl.style.columnCount);
@@ -52,23 +55,15 @@ const Quotes = observer(function () {
           style={{ marginLeft: "0.5rem" }}
         />
       </div>
-      <div
-        ref={columnsRef}
-        style={{
-          columnCount,
-          columnGap: "2em",
-          margin: "2rem 0",
-        }}
-      >
+      <div style={{ overflowX: "auto", maxWidth: "100%" }}>
         <ul
-          style={
-            {
-              //height: "400px",
-              //overflowX: "auto",
-              //width: "fit-content",
-              //padding: "0.5rem",
-            }
-          }
+          ref={columnsRef}
+          style={{
+            columnCount,
+            columnGap: "2em",
+            margin: "2rem 0",
+            minWidth: "fit-content",
+          }}
         >
           {carrencyStore.quotes.map((quote) => {
             return (

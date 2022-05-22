@@ -45,8 +45,8 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
   };
 
   const handleClick = (e: any) => {
-    setIsOpen(true);
     e.target.select();
+    setIsOpen(true);
   };
 
   const handleBlur = () => {
@@ -54,6 +54,9 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
   };
 
   const handleSelect = (e: any) => {
+    if (e.target.tagName !== "LI") {
+      return;
+    }
     setValue(e.target.textContent);
     //setIsOpen(false);
     selectDone(e.target.textContent);

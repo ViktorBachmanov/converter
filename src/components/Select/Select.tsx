@@ -60,7 +60,7 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
   };
 
   const hadleKeyDown = (e: any) => {
-    if (e.code === "Tab") {
+    if (e.key === "Tab") {
       e.preventDefault();
       e.target.blur();
     }
@@ -70,6 +70,7 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
     <div className="vvb-select" style={{ width: "3em", ...style }}>
       <input
         type="text"
+        tabIndex={-1}
         value={value}
         style={{ textAlign: "center", fontFamily: "'Roboto Mono', monospace" }}
         onChange={handleChange}

@@ -50,22 +50,41 @@ const Converter = observer(function Converter() {
         fontSize: "200%",
       }}
     >
-      <div>
-        <Input
-          initialValue={String(amount)}
-          changeCallback={handleChangeAmount}
-        />{" "}
-        <Select
-          initialValue={initialName}
-          initialOptions={carrencyStore.names}
-          doneCallback={handleChangeCurrency}
-        />{" "}
-        ={isNaN(value) ? " 0 " : value.toFixed(carrencyStore.accuracy)}
-        <Select
-          initialValue={carrencyStore.base}
-          initialOptions={carrencyStore.names}
-          doneCallback={handleChangeBase}
-        />
+      <div style={{ display: "flex", marginTop: "2rem", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Input
+            initialValue={String(amount)}
+            changeCallback={handleChangeAmount}
+          />
+          <Select
+            initialValue={initialName}
+            initialOptions={carrencyStore.names}
+            doneCallback={handleChangeCurrency}
+            style={{ margin: "1rem" }}
+          />
+        </div>
+        <div style={{ margin: "1rem", fontSize: "200%" }}>=</div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {isNaN(value) ? " 0 " : value.toFixed(carrencyStore.accuracy)}
+          <Select
+            initialValue={carrencyStore.base}
+            initialOptions={carrencyStore.names}
+            doneCallback={handleChangeBase}
+            style={{ margin: "1rem" }}
+          />
+        </div>
       </div>
     </div>
   );

@@ -38,8 +38,9 @@ function Input({ initialValue, changeCallback, style }: Props) {
     <div className="vvb_input">
       <input
         type="text"
+        tabIndex={-1}
         value={value}
-        style={{ textAlign: "right", ...style }}
+        style={{ textAlign: "center", ...style }}
         onChange={handleChange}
         onKeyDown={hadleKeyDown}
         onClick={handleClick}

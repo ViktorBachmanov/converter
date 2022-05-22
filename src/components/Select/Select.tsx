@@ -44,8 +44,9 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
     doneCallback(value);
   };
 
-  const handleFocus = () => {
+  const handleClick = (e: any) => {
     setIsOpen(true);
+    e.target.select();
   };
 
   const handleBlur = () => {
@@ -72,7 +73,7 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
         value={value}
         style={{ textAlign: "center", fontFamily: "'Roboto Mono', monospace" }}
         onChange={handleChange}
-        onFocus={handleFocus}
+        onFocus={handleClick}
         onBlur={handleBlur}
         onKeyDown={hadleKeyDown}
         ref={inputRef}

@@ -23,6 +23,10 @@ function Input({ initialValue, changeCallback, style }: Props) {
     }
   };
 
+  const handleClick = (e: any) => {
+    e.target.select();
+  };
+
   return (
     <div className="vvb_input">
       <input
@@ -31,6 +35,7 @@ function Input({ initialValue, changeCallback, style }: Props) {
         style={{ textAlign: "right", ...style }}
         onChange={handleChange}
         onKeyDown={hadleKeyDown}
+        onClick={handleClick}
       ></input>
     </div>
   );

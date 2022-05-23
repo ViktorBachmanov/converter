@@ -5,29 +5,21 @@ import { ReactComponent as GitHub } from "./svg/github.svg";
 import LightMode from "./LightMode";
 
 import "./AppBar.css";
+import Language from "./Language";
 
 export default function AppBar() {
   return (
     <div className="AppBar">
-      {/* <NavBar /> */}
-
-      {/* <a
-        className="GitHubLink"
-        href="https://github.com/ViktorBachmanov/Todos"
-        target="_blank"
-        rel="noreferrer"
-      >
-        GitHub
-      </a> */}
-
       <NavBar />
 
-      <GitHub
+      {/* <GitHub
         className="icon-button"
         onClick={() =>
           window.open("https://github.com/ViktorBachmanov/converter")
         }
-      />
+      /> */}
+
+      <Language />
 
       {/* <BaseCurrency /> */}
       <LightMode />

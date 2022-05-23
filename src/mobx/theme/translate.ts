@@ -10,6 +10,10 @@ const translateList: Translate = {
     en: "Accuracy",
     ru: "Точность",
   },
+  baseCurrency: {
+    en: "Base currency",
+    ru: "Базовая валюта",
+  },
   converter: {
     en: "Converter",
     ru: "Конвертер",

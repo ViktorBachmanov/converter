@@ -10,6 +10,7 @@ const Quotes = observer(function () {
   console.log("Currencies");
   const rootStore = useContext(StoreContext);
   const carrencyStore = rootStore.carrency;
+  const themeStore = rootStore.theme;
 
   const accuracy = carrencyStore.accuracy;
 
@@ -25,29 +26,20 @@ const Quotes = observer(function () {
     columnsEl.style.columnCount = String(columnCount);
 
     let columnsWidth = columnsEl.getBoundingClientRect().width;
-    //console.log("columnsWidth: ", columnsWidth);
 
-    //const maxWidth = window.innerWidth - 100;
     const parentEl = columnsEl.parentNode! as HTMLElement;
     const maxWidth = parentEl.getBoundingClientRect().width;
-    //console.log("maxWidth: ", maxWidth);
 
-    //for(let columnCount = getComputedStyle(columnsEl).columnCount ; columnsWidth > maxWidth )
-    //let columnCount: number = parseInt(columnsEl.style.columnCount);
-    //let columnCount: number = parseInt(getComputedStyle(columnsEl).columnCount);
-    //console.log("columnCount: ", columnCount);
     while (columnsWidth > maxWidth && columnCount > 1) {
       columnsEl.style.columnCount = String(--columnCount);
       columnsWidth = columnsEl.getBoundingClientRect().width;
-      //console.log("columnsWidth: ", columnsWidth);
     }
-    //setColumnCount(columnCount);
   });
 
   return (
     <>
       <div style={{ display: "flex" }}>
-        Базовая валюта:
+        {themeStore.tr("baseCurrency")}:
         <Select
           initialValue={carrencyStore.quotesBase}
           initialOptions={carrencyStore.names}

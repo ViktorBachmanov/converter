@@ -2,7 +2,7 @@
   position: relative;
   overflow-x: auto;
   flex: 1 1 auto;
-  font-family: "'Roboto Mono', monospace";
+  font-family: 'Roboto Mono', monospace;
 }
 
 .vvb-input-1 input {

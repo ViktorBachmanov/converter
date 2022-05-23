@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { observer } from "mobx-react-lite";
 
-import Input_1 from "./Input_1/Input_1";
+import Input from "./Input/Input";
 import Select from "./Select/Select";
 
 import { ReactComponent as Equal } from "./svg/equal.svg";
@@ -29,10 +29,6 @@ const Converter = observer(function Converter() {
     carrencyStore.setConverterBase(name);
   };
 
-  // if (carrencyStore.fetchStatus !== "success") {
-  //   return <h2>Loading...</h2>;
-  // }
-
   const value = carrencyStore.convert();
 
   return (
@@ -53,7 +49,7 @@ const Converter = observer(function Converter() {
           maxWidth: "100%",
         }}
       >
-        <Input_1
+        <Input
           className="bg-gray-100 dark:bg-neutral-800 dark:text-slate-200 border-black dark:border-white"
           initialValue={String(carrencyStore.amount)}
           changeCallback={handleChangeAmount}
@@ -71,12 +67,11 @@ const Converter = observer(function Converter() {
       <div
         style={{
           display: "flex",
-          //flexDirection: "column",
           alignItems: "center",
           maxWidth: "100%",
         }}
       >
-        <Input_1
+        <Input
           className="bg-gray-100 dark:bg-neutral-800 dark:text-slate-200 border-black dark:border-white"
           initialValue={
             isNaN(value) ? "0" : value.toFixed(carrencyStore.accuracy)

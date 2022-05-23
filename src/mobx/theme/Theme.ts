@@ -1,4 +1,3 @@
-// import { Storage } from "./types";
 import { makeObservable, observable, action } from "mobx";
 import translateList, { Translate } from "./translate";
 
@@ -61,8 +60,4 @@ export default class Theme {
   public tr(key: string) {
     return this._translate[key][this.language];
   }
-
-  // private saveInLocalStorage() {
-  //   localStorage.setItem(Storage.LIGHT_MODE, this.lightStatus);
-  // }
 }

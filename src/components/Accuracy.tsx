@@ -1,7 +1,7 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { observer } from "mobx-react-lite";
 
-import Input_1 from "./Input_1/Input_1";
+import Input from "./Input/Input";
 
 import { StoreContext } from "../index";
 
@@ -21,7 +21,7 @@ const Accuracy = observer(function () {
   };
 
   return (
-    <Input_1
+    <Input
       initialValue={String(carrencyStore.accuracy)}
       changeCallback={handleChangeAccuracy}
       className="bg-slate-400 dark:bg-slate-700"

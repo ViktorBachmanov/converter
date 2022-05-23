@@ -4,8 +4,6 @@ import Layout from "./components/Layout";
 import Converter from "./components/Converter";
 import Quotes from "./components/Quotes";
 import { Urls } from "./constants";
-import logo from "./logo.svg";
-import "./App.css";
 
 function App() {
   return (

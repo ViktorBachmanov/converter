@@ -1,8 +1,6 @@
 .AppBar {
   display: flex;
   align-items: center;
-  /* padding: 0.5rem; */
- 
 
   @apply bg-slate-500 dark:bg-slate-800 dark:text-slate-300;
 }

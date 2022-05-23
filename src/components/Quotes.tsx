@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 
 import { observer } from "mobx-react-lite";
 
@@ -7,7 +7,6 @@ import { StoreContext } from "../index";
 import Select from "./Select/Select";
 
 const Quotes = observer(function () {
-  console.log("Currencies");
   const rootStore = useContext(StoreContext);
   const carrencyStore = rootStore.carrency;
   const themeStore = rootStore.theme;
@@ -16,10 +15,7 @@ const Quotes = observer(function () {
 
   const columnsRef = useRef(null);
 
-  //const [columnCount, setColumnCount] = useState(5);
   let columnCount = 7; // starting value
-
-  //let columnsWidth = 0;
 
   useEffect(() => {
     let columnsEl = columnsRef.current! as HTMLElement;

@@ -1,28 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import "./Input.css";
 
 interface Props {
   initialValue: string;
-  changeCallback: (value: string) => void;
+  changeCallback?: (value: string) => void;
+  className?: string;
   style?: any;
+  title?: string;
+  isReadonly?: boolean;
 }
 
-function Input({ initialValue, changeCallback, style }: Props) {
-  const [value, setValue] = useState(String(initialValue));
+function Input({
+  initialValue,
+  changeCallback,
+  className,
+  style,
+  title,
+  isReadonly = false,
+}: Props) {
+  const [value, setValue] = useState(initialValue);
+
+  const inputRef = useRef(null);
+  const hiddenVal = useRef(null);
+
+  useEffect(() => {
+    if (isReadonly) {
+      setValue(initialValue);
+    }
+    const hiddenValEl = hiddenVal.current! as HTMLElement;
+    const width = hiddenValEl.getBoundingClientRect().width;
+
+    const inputEl = inputRef.current! as HTMLElement;
+    inputEl.style.width = width + 20 + "px";
+  }, [setValue, isReadonly, initialValue]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
   const hadleKeyDown = (e: any) => {
-    //console.log("hadleKeyDown code: ", e.code);
-    console.log("hadleKeyDown key: ", e.key);
-    if (e.key === "Tab") {
-      e.preventDefault();
-      e.target.blur();
-    } else if (e.key === "Enter") {
-      e.target.blur();
+    switch (e.key) {
+      case "Enter":
+        e.target.blur();
+        break;
     }
   };
 
@@ -30,22 +51,42 @@ function Input({ initialValue, changeCallback, style }: Props) {
     e.target.select();
   };
 
-  const handleBlur = (e: any) => {
-    changeCallback(e.target.value);
+  const handleBlur = () => {
+    if (changeCallback) {
+      changeCallback(value);
+    }
   };
 
   return (
-    <div className="vvb_input">
+    <div
+      className={isReadonly ? "vvb-input-1 readonly" : "vvb-input-1"}
+      tabIndex={-1}
+    >
       <input
-        type="text"
+        ref={inputRef}
         tabIndex={-1}
-        value={value}
-        style={{ textAlign: "center", ...style }}
+        onClick={handleClick}
         onChange={handleChange}
         onKeyDown={hadleKeyDown}
-        onClick={handleClick}
         onBlur={handleBlur}
-      ></input>
+        value={value}
+        title={title}
+        className={className}
+        style={{
+          ...style,
+        }}
+      />
+      <span
+        style={{
+          position: "absolute",
+          visibility: "hidden",
+          top: "0",
+          left: "0",
+        }}
+        ref={hiddenVal}
+      >
+        {value}
+      </span>
     </div>
   );
 }

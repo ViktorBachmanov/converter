@@ -1,5 +1,5 @@
-import { makeObservable, observable, computed, action, flow } from "mobx";
-import { quotes_rub, quotes_usd } from "./quotes";
+import { makeObservable, observable, computed, action } from "mobx";
+import { quotes_usd } from "./quotes";
 import { FetchStatus } from "./types";
 
 const CONVERTER_BASE = "converter_base";
@@ -150,13 +150,10 @@ export default class Carrency {
     const base = this.quotesBase;
     const quotes: Quote[] = [];
 
-    // const baseQuote = this._initialQuotesObject[base];
-
     for (let name in this._initialQuotesObject) {
       if (name === base) {
         continue;
       }
-      //const value = baseQuote / this._initialQuotesObject[name];
       const value = this.evalQuote(name, base);
       quotes.push({ name, value });
     }
@@ -165,7 +162,6 @@ export default class Carrency {
   }
 
   public evalQuote(name: string, base: string) {
-    //const base = this._base;
     const baseQuote = this._initialQuotesObject[base];
 
     return baseQuote / this._initialQuotesObject[name];

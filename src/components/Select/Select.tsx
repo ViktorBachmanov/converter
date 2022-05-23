@@ -22,13 +22,10 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
     setValue(value);
 
     const pattern = new RegExp(`^${value}.*`);
-    //console.log(pattern);
     const filteredOptions = initialOptions.filter((option) => {
       const rslt = option.match(pattern);
-      //console.log(rslt);
       return rslt;
     });
-    //console.log(options);
     setOptions(filteredOptions);
 
     if (value.length === 3 && filteredOptions.includes(value)) {
@@ -38,7 +35,6 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
 
   const selectDone = (value: string) => {
     setOptions(initialOptions);
-    //setIsOpen(false);
     const inputEl = inputRef.current! as HTMLImageElement;
     inputEl.blur();
     doneCallback(value);
@@ -58,7 +54,6 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
       return;
     }
     setValue(e.target.textContent);
-    //setIsOpen(false);
     selectDone(e.target.textContent);
   };
 
@@ -81,7 +76,6 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
         onBlur={handleBlur}
         onKeyDown={hadleKeyDown}
         ref={inputRef}
-        // tabIndex={-1}
       ></input>
 
       <ul

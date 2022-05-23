@@ -1,18 +1,26 @@
-.vvb_input input {
-  /* background-color: inherit; */
-  background: none;
-  padding-right: 0.2em;
-  width: 7em;
-  /* box-sizing: border-box; */
-  /* -webkit-tap-highlight-color: transparent; */
+.vvb-input-1 {
+  position: relative;
+  overflow-x: auto;
+  flex: 1 1 auto;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.vvb-input-1 input {
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 
   border-style: solid;
   border-width: 1px;
   border-radius: 0.2em;
 
-  @apply bg-gray-100 dark:bg-neutral-800 dark:text-slate-200 border-black dark:border-white;
+  min-width: 5em;
 }
 
-/* .vvb_input input:focus {
-  border: none;
-} */
+
+.vvb-input-1.readonly input {
+  pointer-events: none;
+  background: none;
+
+
+}

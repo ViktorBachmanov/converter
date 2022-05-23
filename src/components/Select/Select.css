@@ -4,19 +4,11 @@
   position: relative;
   flex: 0 0 auto;
   font-family: 'Roboto Mono', monospace;
-  /* padding-left: 0.25em;
-  padding-right: 0.25em; */
-
-  /* @apply dark:bg-zinc-600 dark:text-slate-300; */
 }
 
 .vvb-select input {
   background: none;
-  /* padding-left: 0.25em;
-  padding-right: 0.25em; */
   width: 100%;
-  /* box-sizing: border-box; */
-
   border-style: solid;
   border-width: 1px;
   border-radius: 0.2em;
@@ -29,7 +21,6 @@
   left: -0.25em;
   top: 1.75em;
   width: 3.5em;
-  /* margin-top: 0.25em; */
 
   max-height: 75vh;
   border: solid 1px;

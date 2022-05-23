@@ -21,7 +21,12 @@ export default function AppBar() {
       /> */}
 
       <div
-        style={{ display: "flex", alignItems: "center", marginLeft: "auto" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          marginLeft: "auto",
+          marginRight: "0.5rem",
+        }}
       >
         <Accuracy />
         <Language />

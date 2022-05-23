@@ -32,7 +32,7 @@ const LightMode = observer(function LightMode() {
   };
 
   return (
-    <div className="icon-button">
+    <div className="settings">
       {themeStore.lightStatus === "dark" ? (
         <Sun onClick={() => handleClick("light")} />
       ) : (

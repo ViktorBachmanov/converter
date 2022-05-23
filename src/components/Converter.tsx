@@ -49,6 +49,7 @@ const Converter = observer(function Converter() {
         }}
       >
         <Input_1
+          className="bg-gray-100 dark:bg-neutral-800 dark:text-slate-200 border-black dark:border-white"
           initialValue={String(carrencyStore.amount)}
           changeCallback={handleChangeAmount}
           style={{ textAlign: "right" }}
@@ -70,6 +71,7 @@ const Converter = observer(function Converter() {
         }}
       >
         <Input_1
+          className="bg-gray-100 dark:bg-neutral-800 dark:text-slate-200 border-black dark:border-white"
           initialValue={
             isNaN(value) ? " 0 " : value.toFixed(carrencyStore.accuracy)
           }

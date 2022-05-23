@@ -13,7 +13,7 @@ const Language = observer(function () {
   };
 
   return (
-    <div className="icon-button">
+    <div className="settings">
       {themeStore.language === "en" ? (
         <span onClick={() => handleClick("ru")}>En</span>
       ) : (

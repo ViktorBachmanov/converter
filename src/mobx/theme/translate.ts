@@ -6,6 +6,10 @@ export interface Translate {
 }
 
 const translateList: Translate = {
+  accuracy: {
+    en: "Accuracy",
+    ru: "Точность",
+  },
   converter: {
     en: "Converter",
     ru: "Конвертер",

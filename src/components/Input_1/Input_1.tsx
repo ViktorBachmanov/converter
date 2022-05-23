@@ -5,7 +5,9 @@ import "./Input_1.css";
 interface Props {
   initialValue: string;
   changeCallback?: (value: string) => void;
+  className?: string;
   style?: any;
+  title?: string;
   isReadonly?: boolean;
 }
 
@@ -16,7 +18,9 @@ interface Props {
 function Input_1({
   initialValue,
   changeCallback,
+  className,
   style,
+  title,
   isReadonly = false,
 }: Props) {
   //console.log("Input_1 initialValue: ", initialValue);
@@ -77,6 +81,8 @@ function Input_1({
         onKeyDown={hadleKeyDown}
         onBlur={handleBlur}
         value={value}
+        title={title}
+        className={className}
         style={{
           ...style,
         }}

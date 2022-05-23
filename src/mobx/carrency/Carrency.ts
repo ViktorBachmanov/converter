@@ -174,35 +174,36 @@ export default class Carrency {
   }
 
   private async fetchQuotes() {
-    // fetch(
-    //   "https://api.apilayer.com/currency_data/live?source=${this._initialBase}&currencies=",
-    //   {
-    //     method: "GET",
-    //     headers: {
-    //       apikey: this._apiKey,
-    //     },
-    //   }
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
+    let initialQuotesObject: InitialQuotes;
+    let responseStatus: FetchStatus;
 
-    setTimeout(() => {
-      let initialQuotesObject: InitialQuotes;
-
-      const responseStatus: FetchStatus = FetchStatus.Fail;
-      // if(responseStatus === 'success') {
-      initialQuotesObject = quotes_usd;
-      // } else {
-      //   initialQuotesObject = quotes_usd;
-      // }
-      for (let key in initialQuotesObject) {
-        const name = key.substring(3);
-        const value = initialQuotesObject[key];
-        this._initialQuotesObject[name] = value;
-        this._initialNames.push(name);
+    const response = await fetch(
+      `https://api.apilayer.com/currency_data/live?source=${this._initialBase}&currencies=`,
+      {
+        method: "GET",
+        headers: {
+          apikey: this._apiKey,
+        },
       }
+    );
 
-      this.setFetchStatus(responseStatus);
-    }, 1500);
+    if (response.ok) {
+      const data = await response.json();
+      initialQuotesObject = data.quotes;
+      responseStatus = FetchStatus.Success;
+    } else {
+      console.log("Fetch failed");
+      initialQuotesObject = quotes_usd;
+      responseStatus = FetchStatus.Fail;
+    }
+
+    for (let key in initialQuotesObject) {
+      const name = key.substring(3);
+      const value = initialQuotesObject[key];
+      this._initialQuotesObject[name] = value;
+      this._initialNames.push(name);
+    }
+
+    this.setFetchStatus(responseStatus);
   }
 }

@@ -1,7 +1,6 @@
 .vvb-input-1 {
   position: relative;
   overflow-x: auto;
-  flex: 1 1 auto;
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -14,6 +13,7 @@
   border-radius: 0.2em;
 
   min-width: 5em;
+  width: 5em;
 }
 
 .vvb-input-1 input:focus {

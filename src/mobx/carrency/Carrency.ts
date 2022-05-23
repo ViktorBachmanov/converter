@@ -176,22 +176,22 @@ export default class Carrency {
     let initialQuotesObject: InitialQuotes;
     let responseStatus: FetchStatus;
 
-    // const response = await fetch(
-    //   `https://api.apilayer.com/currency_data/live?source=${this._initialBase}&currencies=`,
-    //   {
-    //     method: "GET",
-    //     headers: {
-    //       apikey: this._apiKey,
-    //     },
-    //   }
-    // );
+    const response = await fetch(
+      `https://api.apilayer.com/currency_data/live?source=${this._initialBase}&currencies=`,
+      {
+        method: "GET",
+        headers: {
+          apikey: this._apiKey,
+        },
+      }
+    );
+    const data = await response.json();
 
-    // const data = await response.json();
-    const data: any = await new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({});
-      }, 1500);
-    });
+    // const data: any = await new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve({});
+    //   }, 1500);
+    // });
 
     if (data?.quotes && Object.keys(data.quotes).length) {
       initialQuotesObject = data.quotes;

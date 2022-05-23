@@ -42,13 +42,13 @@
 }
 
 .vvb-select__list li {
-  margin: 0.5em 0;
+  padding: 0.5em 0;
 }
 
 .vvb-select__list li:hover {
-  @apply bg-slate-500 dark:bg-slate-800 dark:text-slate-300;
+  @apply bg-slate-200 dark:bg-slate-600 dark:text-slate-300;
 }
 
 .vvb-select__list li:active {
-  @apply bg-slate-500 dark:bg-slate-800 dark:text-slate-300;
+  @apply bg-slate-200 dark:bg-slate-600 dark:text-slate-300;
 }

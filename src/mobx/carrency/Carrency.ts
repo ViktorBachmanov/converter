@@ -27,52 +27,37 @@ export default class Carrency {
   private _accuracy: number = 2;
   private _amount: number = 1;
   private _name: string = "EUR";
+  private _fetchStatus: "loading" | "success" | "fail" = "loading";
 
   constructor() {
-    //this._apiKey = process.env.REACT_APP_API_KEY!;
-    //this._base = 'RUB';
+    this._apiKey = process.env.REACT_APP_API_KEY!;
 
-    // fetch(
-    //   "https://api.apilayer.com/currency_data/live?source=${this._initialBase}&currencies=",
-    //   {
-    //     method: "GET",
-    //     headers: {
-    //       apikey: this._apiKey,
-    //     },
-    //   }
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
-    const initialQuotesObject: InitialQuotes = quotes_usd;
-
-    for (let key in initialQuotesObject) {
-      const name = key.substring(3);
-      const value = initialQuotesObject[key];
-      this._initialQuotesObject[name] = value;
-      this._initialNames.push(name);
-      //this._initialQuotes.push(value);
-    }
-    // console.log(this._initialNames);
-    // console.log(this._initialQuotes);
-
-    //makeObservable<Carrency, "_base" | "_accuracy">(this, {
     makeObservable<
       Carrency,
-      "_converterBase" | "_quotesBase" | "_accuracy" | "_name" | "_amount"
+      | "_converterBase"
+      | "_quotesBase"
+      | "_accuracy"
+      | "_name"
+      | "_amount"
+      | "_fetchStatus"
     >(this, {
       _converterBase: observable,
       _quotesBase: observable,
       _accuracy: observable,
       _amount: observable,
       _name: observable,
+      _fetchStatus: observable,
       setConverterBase: action,
       setQuotesBase: action,
       setAccuracy: action,
       setAmount: action,
       setName: action,
+      setFetchStatus: action,
       quotes: computed,
       accuracy: computed,
     });
+
+    this.fetchQuotes();
 
     const converterBase = localStorage.getItem(CONVERTER_BASE);
     if (converterBase) {
@@ -128,6 +113,10 @@ export default class Carrency {
     this._name = val;
   }
 
+  public setFetchStatus(val: "success" | "fail") {
+    this._fetchStatus = val;
+  }
+
   public get names() {
     return [...this._initialNames];
   }
@@ -150,6 +139,10 @@ export default class Carrency {
 
   public get name() {
     return this._name;
+  }
+
+  public get fetchStatus() {
+    return this._fetchStatus;
   }
 
   public get quotes() {
@@ -181,5 +174,32 @@ export default class Carrency {
     const quote = this.evalQuote(this.name, this.converterBase);
 
     return quote * this.amount;
+  }
+
+  private async fetchQuotes() {
+    // fetch(
+    //   "https://api.apilayer.com/currency_data/live?source=${this._initialBase}&currencies=",
+    //   {
+    //     method: "GET",
+    //     headers: {
+    //       apikey: this._apiKey,
+    //     },
+    //   }
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
+
+    setTimeout(() => {
+      const initialQuotesObject: InitialQuotes = quotes_usd;
+
+      for (let key in initialQuotesObject) {
+        const name = key.substring(3);
+        const value = initialQuotesObject[key];
+        this._initialQuotesObject[name] = value;
+        this._initialNames.push(name);
+      }
+
+      this.setFetchStatus("success");
+    }, 3000);
   }
 }

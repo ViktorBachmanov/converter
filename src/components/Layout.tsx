@@ -1,13 +1,16 @@
 import React, { useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
 
+import { observer } from "mobx-react-lite";
+
 import AppBar from "./AppBar";
+import Loader from "./Loader";
 //import NavBar from "./NavBar";
 //import Input from "./Input/Input";
 
 import { StoreContext } from "../index";
 
-function Layout() {
+const Layout = observer(function () {
   const rootStore = useContext(StoreContext);
   const carrencyStore = rootStore.carrency;
 
@@ -32,10 +35,11 @@ function Layout() {
           />
         </div> */}
 
-        <Outlet />
+        {carrencyStore.fetchStatus === "success" ? <Outlet /> : <Loader />}
+        {/* <Outlet /> */}
       </div>
     </div>
   );
-}
+});
 
 export default Layout;

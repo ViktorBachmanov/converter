@@ -39,7 +39,12 @@ const Quotes = observer(function () {
   return (
     <>
       <div
-        style={{ display: "flex", fontSize: "120%", marginTop: "1em" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          fontSize: "120%",
+          marginTop: "1em",
+        }}
         className="font-medium"
       >
         {themeStore.tr("baseCurrency")}:

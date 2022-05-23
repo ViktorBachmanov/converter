@@ -14,6 +14,10 @@ const translateList: Translate = {
     en: "Base currency",
     ru: "Базовая валюта",
   },
+  cacheDataUsed: {
+    en: "Data from cache are used",
+    ru: "Используются данные из кэша",
+  },
   converter: {
     en: "Converter",
     ru: "Конвертер",

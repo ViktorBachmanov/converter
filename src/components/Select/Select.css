@@ -3,6 +3,7 @@
   text-align: center;
   position: relative;
   flex: 0 0 auto;
+  font-family: "'Roboto Mono', monospace";
   /* padding-left: 0.25em;
   padding-right: 0.25em; */
 
@@ -42,7 +43,7 @@
 }
 
 .vvb-select__list li {
-  padding: 0.5em 0;
+  padding: 0.25em 0;
 }
 
 .vvb-select__list li:hover {

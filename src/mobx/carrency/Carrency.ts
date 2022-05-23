@@ -1,5 +1,6 @@
 import { makeObservable, observable, computed, action, flow } from "mobx";
 import { quotes_rub, quotes_usd } from "./quotes";
+import { FetchStatus } from "./types";
 
 const CONVERTER_BASE = "converter_base";
 const QUOTES_BASE = "quotes_base";
@@ -27,7 +28,7 @@ export default class Carrency {
   private _accuracy: number = 2;
   private _amount: number = 1;
   private _name: string = "EUR";
-  private _fetchStatus: "loading" | "success" | "fail" = "loading";
+  private _fetchStatus: FetchStatus = FetchStatus.Loading;
 
   constructor() {
     this._apiKey = process.env.REACT_APP_API_KEY!;
@@ -113,7 +114,7 @@ export default class Carrency {
     this._name = val;
   }
 
-  public setFetchStatus(val: "success" | "fail") {
+  public setFetchStatus(val: FetchStatus) {
     this._fetchStatus = val;
   }
 
@@ -190,8 +191,14 @@ export default class Carrency {
     //   .then((data) => console.log(data));
 
     setTimeout(() => {
-      const initialQuotesObject: InitialQuotes = quotes_usd;
+      let initialQuotesObject: InitialQuotes;
 
+      const responseStatus: FetchStatus = FetchStatus.Fail;
+      // if(responseStatus === 'success') {
+      initialQuotesObject = quotes_usd;
+      // } else {
+      //   initialQuotesObject = quotes_usd;
+      // }
       for (let key in initialQuotesObject) {
         const name = key.substring(3);
         const value = initialQuotesObject[key];
@@ -199,7 +206,7 @@ export default class Carrency {
         this._initialNames.push(name);
       }
 
-      this.setFetchStatus("success");
-    }, 3000);
+      this.setFetchStatus(responseStatus);
+    }, 1500);
   }
 }

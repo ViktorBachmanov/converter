@@ -187,8 +187,8 @@ export default class Carrency {
       }
     );
 
-    if (response.ok) {
-      const data = await response.json();
+    const data = await response.json();
+    if (data?.quotes && Object.keys(data.quotes).length) {
       initialQuotesObject = data.quotes;
       responseStatus = FetchStatus.Success;
     } else {

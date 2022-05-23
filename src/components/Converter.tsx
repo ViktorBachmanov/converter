@@ -61,7 +61,15 @@ const Converter = observer(function Converter() {
           style={{ margin: "1rem" }}
         />
       </div>
-      <div style={{ fontSize: "150%", alignSelf: "center" }}>=</div>
+      <div
+        style={{
+          fontSize: "150%",
+          alignSelf: "center",
+          marginBottom: "0.33em",
+        }}
+      >
+        =
+      </div>
       <div
         style={{
           display: "flex",

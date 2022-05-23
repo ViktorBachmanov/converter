@@ -70,7 +70,7 @@ function Select({ initialValue, initialOptions, doneCallback, style }: Props) {
   };
 
   return (
-    <div className="vvb-select" style={{ width: "3em", ...style }}>
+    <div className="vvb-select" style={{ ...style }}>
       <input
         type="text"
         tabIndex={-1}

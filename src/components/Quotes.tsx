@@ -38,7 +38,10 @@ const Quotes = observer(function () {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div
+        style={{ display: "flex", fontSize: "120%", marginTop: "1em" }}
+        className="font-medium"
+      >
         {themeStore.tr("baseCurrency")}:
         <Select
           initialValue={carrencyStore.quotesBase}

@@ -14,7 +14,7 @@
   /* border: 1px solid gray; */
   /* box-shadow: 0 0 2px gray; */
 
-  @apply bg-slate-400 text-gray-700 dark:bg-slate-700 dark:text-slate-400;
+  @apply bg-slate-400 text-gray-700 dark:bg-slate-700 dark:text-slate-400 font-medium;
 }
 
 .NavBar .activeNavLink {

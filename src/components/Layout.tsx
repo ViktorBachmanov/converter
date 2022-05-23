@@ -12,7 +12,7 @@ function Layout() {
   const carrencyStore = rootStore.carrency;
 
   return (
-    <div className="Layout">
+    <div className="text-sm md:text-md lg:text-lg xl:text-xl">
       <AppBar />
 
       <div

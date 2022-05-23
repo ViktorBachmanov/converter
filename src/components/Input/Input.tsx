@@ -33,7 +33,7 @@ function Input({
 
     const inputEl = inputRef.current! as HTMLElement;
     inputEl.style.width = width + 20 + "px";
-  }, [setValue, isReadonly, initialValue]);
+  }, [value, setValue, isReadonly, initialValue]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);

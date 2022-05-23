@@ -22,7 +22,6 @@ export default class Carrency {
   private _initialBase: string = "USD";
   private _initialQuotesObject: InitialQuotes = {};
   private _initialNames: string[] = [];
-  private _initialQuotes: number[] = [];
   private _converterBase: string = "RUB";
   private _quotesBase: string = "RUB";
   private _accuracy: number = 2;

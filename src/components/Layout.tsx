@@ -24,7 +24,7 @@ const Layout = observer(function () {
       ) : null}
 
       <div
-        className="container p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12"
+        className="container p-3 sm:p-4 md:p-5 lg:p-6 xl:p-7"
         style={{
           display: "flex",
           flexDirection: "column",

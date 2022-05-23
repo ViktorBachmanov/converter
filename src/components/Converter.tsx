@@ -4,6 +4,8 @@ import { observer } from "mobx-react-lite";
 import Input_1 from "./Input_1/Input_1";
 import Select from "./Select/Select";
 
+import { ReactComponent as Equal } from "./svg/equal.svg";
+
 import { StoreContext } from "../index";
 
 const Converter = observer(function Converter() {
@@ -64,15 +66,8 @@ const Converter = observer(function Converter() {
           style={{ margin: "1rem" }}
         />
       </div>
-      <div
-        style={{
-          fontSize: "150%",
-          alignSelf: "center",
-          marginBottom: "0.33em",
-        }}
-      >
-        =
-      </div>
+
+      <Equal style={{ alignSelf: "center", width: "1em" }} />
       <div
         style={{
           display: "flex",

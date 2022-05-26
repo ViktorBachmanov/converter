@@ -13,13 +13,6 @@ export default function AppBar() {
     <div className="AppBar">
       <NavBar />
 
-      {/* <GitHub
-        className="icon-button"
-        onClick={() =>
-          window.open("https://github.com/ViktorBachmanov/converter")
-        }
-      /> */}
-
       <div
         style={{
           display: "flex",
@@ -31,6 +24,13 @@ export default function AppBar() {
         <Accuracy />
         <Language />
         <LightMode />
+        <GitHub
+          className="settings text-neutral-800 dark:text-neutral-500"
+          //color="#737373"
+          onClick={() =>
+            window.open("https://github.com/ViktorBachmanov/converter")
+          }
+        />
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ interface Quote {
 
 export default class Carrency {
   private _apiKey: string = process.env.REACT_APP_API_KEY!;
-  private _initialBase: string = "USD";
+  private _initialBase: string = "MXN";
   private _initialQuotesObject: InitialQuotes = {};
   private _initialNames: string[] = [];
   private _converterBase: string = "RUB";
